@@ -1,3 +1,6 @@
+![Kapak Fotoğrafı](https://i.hizliresim.com/re6fj55.jpg "Kapak Fotoğrafı")
+
+
 # UcuzUcakBileti-Otomasyonu
 
 UcuzaBilet'in sunduğu fırsat uçak biletlerini belirli aralıklarla kontrol ederek istenilen rota-tarih ve fiyata uygun uçak bileti bulunduğunda haber veren bir konsol otomasyonudur.
