@@ -40,8 +40,8 @@ def fetch_flights():
 def filter_flights(flights, from_airport, to_airport, flight_date=None, price=None):
     return [
         flight for flight in flights
-        if flight["kalkis_havalimani_kodu"] == from_airport and 
-           flight["varis_havalimani_kodu"] == to_airport and 
+        if flight["kalkis_havalimani_kodu"].lower() == from_airport.lower() and 
+           flight["varis_havalimani_kodu"].lower() == to_airport.lower() and 
            (not flight_date or flight["tarih"] == flight_date) and
            (not price or float(flight["fiyat"]) <= float(price))
     ]
