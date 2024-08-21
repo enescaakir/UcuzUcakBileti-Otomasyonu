@@ -29,6 +29,14 @@ def is_valid_date(date_str):
     except ValueError:
         return False
 
+def is_valid_price(price_str):
+    if not price_str:
+        return True
+    elif price_str.isdigit():
+        return True
+    else:
+        return False
+
 def fetch_flights():
     spider_name = scraper.name
     url = f"http://localhost:9080/crawl.json?spider_name={spider_name}&start_requests=true"
@@ -62,7 +70,7 @@ def task():
     from_airport_code = get_input("\nKalkış havalimanı kodunu giriniz: ")
     to_airport_code = get_input("\nVarış havalimanı kodunu giriniz: ")
     flight_date = get_input("\nUçuş tarihini (Gün-Ay-Yıl) formatında giriniz.\nEn yakın tarih için bilet araştırması yapıyorsanız boş bırakınız: ", is_valid_date)
-    price = get_input("\nBilet fiyatı limitini giriniz (Örnek: 2000).\nBu limitin altında uygun bilet araması yapılacaktır:", lambda x: x.isdigit())
+    price = get_input("\nBilet fiyatı limitini giriniz (Örnek: 2000).\nBu limitin altında uygun bilet araması yapılacaktır:", is_valid_price)
     
     while True:
         print("Girdiğiniz bilgilere uygun uçuşlar aranıyor... Tarih: " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
