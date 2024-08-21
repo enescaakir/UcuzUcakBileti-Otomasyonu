@@ -1,7 +1,17 @@
 import time
+import os
 import requests
 from datetime import datetime
 from flightbot.spiders.ucuzabilet_scraper import UcuzaBiletScraper as scraper
+
+def play_sound():
+    if os.name == 'nt':  # Windows
+        import winsound
+        frequency = 2500
+        duration = 1000
+        winsound.Beep(frequency, duration)
+    else:  # macOS ve Linux
+        os.system('afplay /System/Library/Sounds/Glass.aiff')
 
 def get_input(prompt, validate=None):
     while True:
@@ -65,7 +75,9 @@ def task():
         matched_flights = filter_flights(flights, from_airport_code, to_airport_code, flight_date, price)
 
         if matched_flights:
+            play_sound()
             print("Uygun uçuşlar bulundu.")
+            
             cheapest_flight = matched_flights[0]
             print(f"{cheapest_flight['tarih']} tarihli uçuş için en ucuz bilet fiyatı: {cheapest_flight['fiyat']} TL")
             break
