@@ -90,6 +90,6 @@ def task():
             print(f"{cheapest_flight['tarih']} tarihli uçuş için en ucuz bilet fiyatı: {cheapest_flight['fiyat']} TL")
             break
 
-        time.sleep(30)
+        time.sleep(60)
 
 task()
